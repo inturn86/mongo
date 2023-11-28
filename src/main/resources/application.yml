@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mongo
+  data:
+    mongodb:
+      uri: mongodb://root:root@127.0.0.1:27017/?readPreference=primary&replicaSet=rs0&directConnection=true
+#      uri: mongodb://localhost:27017/?readPreference=primary&replicaSet=rs0&authMechanism=DEFAULT&directConnection=true/sdc_test
+      databaseName: sdc_test
+      username: root
+      password: root
+      authentication-database: admin
+      database: sdc_test
