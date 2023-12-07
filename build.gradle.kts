@@ -24,7 +24,11 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework:spring-aspects:6.0.11")
+    implementation("org.springframework:spring-aspects")
+	implementation("org.springframework.kafka:spring-kafka")
+	implementation("org.modelmapper:modelmapper:3.2.0")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis:3.2.0")
+	implementation("commons-beanutils:commons-beanutils:1.9.4")
     compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")

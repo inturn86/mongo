@@ -5,7 +5,12 @@ import com.mongo.starter.manager.process.DocProcessProcedure;
 import com.mongo.starter.service.mdm.user.UserEntity;
 import com.mongo.starter.service.mdm.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -19,20 +24,28 @@ public class UserController {
 
 	private final DocProcessProcedure docProcessProcedure;
 
-	@GetMapping("/{id}")
-	public UserEntity getUser(@PathVariable String id) {
-		return userService.getUser(id);
-	}
+//	@GetMapping("/{id}")
+//	public UserEntity getUser(@PathVariable String id) {
+//		return userService.getUser(id);
+//	}
 
 	@PostMapping
 	public UserEntity saveUser(@RequestBody UserEntity user) {
-		return userService.saveUser(user);
+		return userService.save(user);
 	}
 
-	@PostMapping("/department")
-	public void saveUserAndDepartment(@RequestBody UserEntity user) {
+	@GetMapping("/{id}")
+	public UserEntity getUserDetail(@PathVariable String id) {
+		return userService.getDetailById(id);
+	}
 
-		docProcessProcedure.processingDoc("test");
-		userBizService.saveUserAndDepartment(user);
+	@GetMapping
+	public List<UserEntity> getUserList(UserEntity dto, Sort sort) {
+		return userService.getUserList(dto, sort);
+	}
+
+	@GetMapping("/paging")
+	public Page<UserEntity> getUserPagingList(UserEntity dto, Pageable paging) {
+		return userService.getUserPagingListBySort(dto, paging);
 	}
 }

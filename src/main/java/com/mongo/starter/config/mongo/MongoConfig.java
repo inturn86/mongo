@@ -1,4 +1,4 @@
-package com.mongo.starter.config;
+package com.mongo.starter.config.mongo;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

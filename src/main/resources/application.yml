@@ -1,4 +1,14 @@
 spring:
+  profiles:
+    active:
+      - dev
+  kafka:
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+      type : SINGLE
+    consumer:
+      bootstrap-servers: localhost:29092
+      #group-id: cdc_group
   application:
     name: mongo
   data:

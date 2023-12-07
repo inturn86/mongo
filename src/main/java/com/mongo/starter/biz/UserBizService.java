@@ -22,16 +22,13 @@ public class UserBizService {
 	@Transactional
 	public ResponseEntity<Object> saveUserAndDepartment(UserEntity user) {
 
-
-
-
 		DepartmentEntity department = new DepartmentEntity();
 		department.setDepartmentName("S/W");
 		DepartmentEntity departmentEntity = departmentService.saveDepartment(department);
 
 		user.setDepartmentId(department.getDepartmentId());
 
-		userService.saveUser(user);
+		userService.save(user);
 
 		return ResponseEntity.ok().body(user);
 	}

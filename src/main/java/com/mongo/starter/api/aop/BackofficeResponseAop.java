@@ -24,10 +24,6 @@ public class BackofficeResponseAop {
 		log.error("Api Processing Start {} ", startSecond);
 		Object result = null;
 
-		if(true) {
-			throw new NoAuthException();
-		}
-
 		try {
 			result = proceed.proceed();
 		} catch (Throwable e) {
