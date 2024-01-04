@@ -1,10 +1,7 @@
 package com.mongo.starter.service.mdm.user;
 
 import com.mongo.starter.define.common.ECRUDMode;
-import com.mongo.starter.manager.util.ModelMapperUtils;
 import com.mongo.starter.service.common.MongoCommonService;
-import com.mongo.starter.service.mdm.department.DepartmentEntity;
-import com.mongo.starter.service.mdm.department.repository.DepartmentRepository;
 import com.mongo.starter.service.mdm.user.dto.UserDTO;
 import com.mongo.starter.service.mdm.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -54,9 +51,10 @@ public class UserService extends MongoCommonService<String, UserEntity, UserRepo
 		return super.getPagingList(dto, paging);
 	}
 
-	public Page<UserEntity> getUserPagingListBySort(UserEntity dto, Pageable paging) {
-		return super.getPagingListBySort(dto, paging, paging.getSort());
+	public Page<UserEntity> getUserPagingListBySort(UserDTO dto, Pageable paging) {
+		return getPagingListBySort(dto, paging, paging.getSort());
 	}
+
 
 	//TODO - DTO로 변환하는 부분 확인.
 //	public List<UserDTO> getUserList(UserDTO dto) {

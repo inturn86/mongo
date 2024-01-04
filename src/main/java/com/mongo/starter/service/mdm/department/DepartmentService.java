@@ -38,7 +38,6 @@ public class DepartmentService extends MongoCommonService<String, DepartmentEnti
 		if(departmentEntity == null)    throw new RuntimeException();
 
 		//TODO - Entity를 조회하여 이전값에 적용.
-		//TODO - ModelMapper 관련 설정 로직 추가.
 		ModelMapper mapper = new ModelMapper();
 		//TODO - 변경 사항에 대해서만 수정 처리. == 확인.
 		mapper.map(dto, departmentEntity);

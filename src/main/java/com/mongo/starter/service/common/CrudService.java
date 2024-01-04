@@ -2,6 +2,7 @@ package com.mongo.starter.service.common;
 
 import com.mongo.starter.manager.util.ModelMapperUtils;
 import com.mongo.starter.service.common.dto.DefaultDTO;
+import com.mongo.starter.service.mdm.user.UserEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.transaction.annotation.Transactional;
 

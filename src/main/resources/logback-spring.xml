@@ -79,6 +79,14 @@
 	        <appender-ref ref="FILE" />
 	    </root>
 	</springProfile>
+	<springProfile name="alone">
+		<!-- 		<logger name="org.hibernate.type.descriptor.sql" level="TRACE"/> -->
+		<!--프로파일 별 예외 로거는 요기에 넣어주세요-->
+		<root level="DEBUG">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
 	<springProfile name="stage">
 <!-- 		<logger name="org.hibernate.type.descriptor.sql" level="TRACE"/> -->
 	    <!--프로파일 별 예외 로거는 요기에 넣어주세요-->

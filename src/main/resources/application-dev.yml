@@ -1,7 +1,4 @@
 spring:
-  profiles:
-    active:
-      - alone
   kafka:
     listener:
       ack-mode: MANUAL_IMMEDIATE

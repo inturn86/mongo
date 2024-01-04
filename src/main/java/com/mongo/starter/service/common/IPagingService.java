@@ -6,12 +6,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface IPagingService<ID, E extends DefaultDTO, R extends MongoRepository<E, ID>> extends IService<ID, E, R>{
 
-	public default Page<E> getPagingList(E entity, Pageable page) {
+	default <D extends DefaultDTO> Page<E> getPagingList(E entity, Pageable page) {
 		return getRepository().findAll(Example.of(entity), page);
 	}
 
-	default Page<E> getPagingListBySort(E entity, Pageable page, Sort sort) {
+	default <D extends DefaultDTO> Page<E>  getPagingListBySort(E entity, Pageable page, Sort sort) {
 		Pageable paging = PageRequest.of(page.getPageNumber(), page.getPageSize(), sort);
-		return getRepository().findAll(paging);
+		return getRepository().findAll(Example.of(entity), page);
 	}
 }
